@@ -1,6 +1,10 @@
-# Scripts to generate the cross-inlining dataset
+# Scripts to train the cross-inlining model
 
 Given the raw binaries compiled by different architectures, compiler and optimizations, here are the scripts to generate the datasets for cross-inlining. 
+
+## Dataset
+
+The dataset can download from https://drive.google.com/file/d/1K9ef-OoRBr0X5u8g2mlnYqh9o1i6zFij/view and https://drive.google.com/file/d/1wt7GY-DDp8J_2zeBBVUrcfWIyerg_xLO/view. It is contructed using Binkit (https://github.com/SoftSec-KAIST/BinKit).
 
 ## workflow
 
@@ -98,7 +102,5 @@ python3 /code/gnn.py --train --num_epochs 128 \
 
 
 ## note
-
-The dataset can download from https://drive.google.com/file/d/1K9ef-OoRBr0X5u8g2mlnYqh9o1i6zFij/view and https://drive.google.com/file/d/1wt7GY-DDp8J_2zeBBVUrcfWIyerg_xLO/view. 
 
 Note that binaries compiled in architecture **mips-32 mips-64** cannot be processed by the capstone, thus must be excluded in the subsequent process.
