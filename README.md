@@ -101,6 +101,8 @@ python3 /code/gnn.py --train --num_epochs 128 \
 ```
 
 
-## note
+## License
 
-Note that binaries compiled in architecture **mips-32 mips-64** cannot be processed by the capstone, thus must be excluded in the subsequent process.
+The code in this repository is licensed under the MIT License, however, some models and scripts depend on code with different licenses.
+
+The GNN models contain part of the original source code which is licensed under Apache License 2.0.
