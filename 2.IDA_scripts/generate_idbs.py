@@ -53,7 +53,7 @@ from os.path import samefile
 
 BIN_FOLDER = join(dirname(dirname(abspath(__file__))), 'Binaries')
 IDB_FOLDER = join(dirname(dirname(abspath(__file__))), 'IDBs')
-IDA_PATH = getenv("IDA_PATH", "/data2/jiaang/tool/idapro-7.3/idat64")
+IDA_PATH = getenv("IDA_PATH", "/path/to/tool/idapro-7.3/idat64")
 LOG_PATH = "generate_idbs_log.txt"
 
 TEST_BINARIES = {

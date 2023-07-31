@@ -20,6 +20,12 @@ This repository use the code from repository https://github.com/Cisco-Talos/bina
 
 5. use the training_for_cross_inlining/Model/Preprocessing to process the dataset inline and dataset noinline
 
+    5.0 build docker for preprocessing
+
+    ```bash
+    docker build --no-cache Preprocessing/ -t gnn-preprocessing
+    ```
+
     5.1 processing for dataset noinline (use the processed results in noinline)  -- dataset-2
 
    ```bash
@@ -77,28 +83,33 @@ This repository use the code from repository https://github.com/Cisco-Talos/bina
 
      
 
-7. build_docker
-
-```bash
-nvidia-docker run \
-    -v $(pwd)/../../DBs:/input \
-    -v $(pwd)/Preprocessing:/preprocessing \
-    -v $(pwd)/NeuralNetwork_cross_inlining/:/output \
-    -v $(pwd)/NeuralNetwork_cross_inlining/code:/code \
-    --name gnn-neuralnetwork_cross_inlining \
-    -it gnn-neuralnetwork_base 
-```
-
-change  line 77 in training_for_cross_inlining\Model\code\core\config.py to respectively train model for pattern1 pattern2 pattern3
+7. build_docker for model training
 
 
-```bash
-python3 /code/gnn.py --train --num_epochs 128 \
-    --model_type embedding --training_mode pair \
-    --features_type opc --dataset one \
-    -c /output/model_checkpoint_pattern1_epoch_128 \
-    -o /output/Dataset_cross_inlining_training_GSSN_opc_pair_pattern1_epoch_128
-```
+    ```bash
+    docker build --no-cache NeuralNetwork/ -t gnn-neuralnetwork_base
+    ```
+
+    ```bash
+    nvidia-docker run \
+        -v $(pwd)/../../DBs:/input \
+        -v $(pwd)/Preprocessing:/preprocessing \
+        -v $(pwd)/NeuralNetwork_cross_inlining/:/output \
+        -v $(pwd)/NeuralNetwork_cross_inlining/code:/code \
+        --name gnn-neuralnetwork_cross_inlining \
+        -it gnn-neuralnetwork_base 
+    ```
+
+    change  line 77 in training_for_cross_inlining\Model\code\core\config.py to respectively train model for pattern1 pattern2 pattern3
+
+
+    ```bash
+    python3 /code/gnn.py --train --num_epochs 128 \
+        --model_type embedding --training_mode pair \
+        --features_type opc --dataset one \
+        -c /output/model_checkpoint_pattern1_epoch_128 \
+        -o /output/Dataset_cross_inlining_training_GSSN_opc_pair_pattern1_epoch_128
+    ```
 
 
 ## note

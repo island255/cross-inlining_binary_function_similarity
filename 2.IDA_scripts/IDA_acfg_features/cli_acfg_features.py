@@ -48,7 +48,7 @@ from os.path import dirname
 from os.path import isfile
 from os.path import join
 
-IDA_PATH = getenv("IDA_PATH", "/data2/jiaang/tool/idapro-7.3/idat64")
+IDA_PATH = getenv("IDA_PATH", "/path/to/tool/idapro-7.3/idat64")
 IDA_PLUGIN = join(dirname(abspath(__file__)), 'IDA_acfg_features.py')
 REPO_PATH = dirname(dirname(dirname(abspath(__file__))))
 LOG_PATH = "acfg_features_log.txt"

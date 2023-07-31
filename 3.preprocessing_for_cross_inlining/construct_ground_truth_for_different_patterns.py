@@ -473,9 +473,9 @@ def preprocessing_for_dataset_I():
     dataset_1_mapping_file = "dataset_1_mapping.json"
     if not os.path.exists(dataset_1_mapping_file):
         print("summary function mapping...")
-        mapping_results_dir = "/data2/jiaang/binary2binary/dataset_I/mapping_results/"
+        mapping_results_dir = "/path/to/binary2binary/dataset_I/mapping_results/"
         binary_dir = "IDBs/Dataset-1/"
-        source_prefix = "/data2/jiaang/binary2binary/dataset_I/source/"
+        source_prefix = "/path/to/binary2binary/dataset_I/source/"
         dataset_1_mapping = summary_mapping_files(mapping_results_dir, binary_dir, source_prefix)
         write_json(dataset_1_mapping_file, dataset_1_mapping)
     else:
@@ -497,7 +497,7 @@ def preprocessing_for_dataset_I():
             os.path.exists(binary_function_to_start_address_file) is False or \
             os.path.exists(binary_address_to_func_name_file) is False:
         print("summary basic block numbers for binary functions")
-        flowchart_folder = "/data2/jiaang/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_I"
+        flowchart_folder = "/path/to/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_I"
         binary_function_to_bb_num, binary_function_to_start_address, binary_address_to_func_name = \
             extract_bb_number_of_binary_function(flowchart_folder)
         write_json(binary_function_to_bb_num_file_name, binary_function_to_bb_num)
@@ -557,9 +557,9 @@ def proprecessing_for_dataset_II():
     dataset_2_mapping_file = "dataset_2_mapping.json"
     if not os.path.exists(dataset_2_mapping_file):
         print("summary function mapping...")
-        mapping_results_dir = "/data2/jiaang/binary2binary/dataset_II/mapping_results/"
+        mapping_results_dir = "/path/to/binary2binary/dataset_II/mapping_results/"
         binary_dir = "IDBs/Dataset-2/"
-        source_prefix = "/data2/jiaang/binary2binary/dataset_II/source/"
+        source_prefix = "/path/to/binary2binary/dataset_II/source/"
         dataset_2_mapping = summary_mapping_files(mapping_results_dir, binary_dir, source_prefix)
         write_json(dataset_2_mapping_file, dataset_2_mapping)
     else:
@@ -579,7 +579,7 @@ def proprecessing_for_dataset_II():
     if os.path.exists(binary_function_to_bb_num_file_name) is False or \
             os.path.exists(binary_function_to_start_address_file) is False:
         print("summary basic block numbers for binary functions")
-        flowchart_folder = "/data2/jiaang/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_II"
+        flowchart_folder = "/path/to/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_II"
         binary_function_to_bb_num, binary_function_to_start_address, _ = extract_bb_number_of_binary_function(
             flowchart_folder)
         write_json(binary_function_to_bb_num_file_name, binary_function_to_bb_num)
@@ -634,9 +634,9 @@ def read_dataset_using_partition(inlined_function_mappings, project_partition):
 def generate_training_datasets(cross_inlining_mappings, pattern_name):
     project_partition_file = "../preprocessing_for_noinline/split_dataset/project_partition.json"
     dataset_partition_folder = "split_dataset"
-    dest_split_fodler = "/data2/jiaang/binary2binary/DBs/Dataset-1/features"
+    dest_split_fodler = "/path/to/binary2binary/DBs/Dataset-1/features"
 
-    acfg_disasm_folder = "/data2/jiaang/binary2binary/IDA_scripts/IDA_acfg_disasm/acfg_disasm_Dataset-1"
+    acfg_disasm_folder = "/path/to/binary2binary/IDA_scripts/IDA_acfg_disasm/acfg_disasm_Dataset-1"
     if os.path.exists(dataset_partition_folder) is True:
         project_partition = read_json(project_partition_file)
         train_set, test_set, validate_set = \
@@ -661,7 +661,7 @@ def generate_training_datasets(cross_inlining_mappings, pattern_name):
 
 def generate_testing_datasets(validate_set, test_set, pattern_name):
     print("generating validation positive and negative pairs")
-    validation_pairs_folder = "/data2/jiaang/binary2binary/DBs/Dataset-1+2/pairs/validation"
+    validation_pairs_folder = "/path/to/binary2binary/DBs/Dataset-1+2/pairs/validation"
     if os.path.exists(validation_pairs_folder) is False:
         os.makedirs(validation_pairs_folder)
     validation_positive_path = os.path.join(validation_pairs_folder, pattern_name + "pos_validation_Dataset-1.csv")
@@ -672,7 +672,7 @@ def generate_testing_datasets(validate_set, test_set, pattern_name):
                                                     validation_negative_path, number=40000)
 
     print("generating testing positive and negative pairs")
-    test_pairs_folder = "/data2/jiaang/binary2binary/DBs/Dataset-1+2/pairs/testing"
+    test_pairs_folder = "/path/to/binary2binary/DBs/Dataset-1+2/pairs/testing"
     if os.path.exists(test_pairs_folder) is False:
         os.makedirs(test_pairs_folder)
     testing_positive_path = os.path.join(test_pairs_folder, pattern_name + "pos_testing_Dataset-1.csv")

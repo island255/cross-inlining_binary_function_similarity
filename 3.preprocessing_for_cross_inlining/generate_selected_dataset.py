@@ -1,4 +1,4 @@
-import csv
+import csvath/to
 import json
 import os
 
@@ -13,7 +13,7 @@ def write_json(file_path, obj):
 
 def generate_selected_dataset():
     selected_dataset = {}
-    flowchart_folder = "/data2/jiaang/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_I"
+    flowchart_folder = "/path/to/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_I"
     with tqdm(total=len(os.listdir(flowchart_folder))) as pbar:
         for csv_file_name in os.listdir(flowchart_folder):
             project_name = csv_file_name.split("-")[0]

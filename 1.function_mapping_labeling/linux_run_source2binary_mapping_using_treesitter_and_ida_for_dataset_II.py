@@ -58,7 +58,7 @@ def extract_mapping_information(binary_project_dir, source_entities_file, flowch
 
 
 def main():
-    binary_projects_dir = "/data2/jiaang/binary2binary/dataset_II/"
+    binary_projects_dir = "/path/to/binary2binary/dataset_II/"
     debug_dir = os.path.join(binary_projects_dir, "debug_infos")
     source_entities_dir = os.path.join(binary_projects_dir, "source_entities")
     mapping_dir = os.path.join(binary_projects_dir, "mapping_results")
@@ -66,10 +66,10 @@ def main():
     readelf_file_path = "readelf"
     tree_sitter_lib_path = "tree_sitter_scripts/my-languages.so"
 
-    source_project_folder = "/data2/jiaang/binary2binary/dataset_II/source/"
-    binary_project_folder = "/data2/jiaang/binary2binary/Binaries/Dataset-2/"
+    source_project_folder = "/path/to/binary2binary/dataset_II/source/"
+    binary_project_folder = "/path/to/binary2binary/Binaries/Dataset-2/"
 
-    flowchart_dir = "/data2/jiaang/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_II"
+    flowchart_dir = "/path/to/binary2binary/IDA_scripts/IDA_flowchart/flowchart_csv_dataset_II"
 
     project_name_list = os.listdir(binary_project_folder)
     for project_name in project_name_list:
