@@ -632,7 +632,7 @@ def read_dataset_using_partition(inlined_function_mappings, project_partition):
 
 
 def generate_training_datasets(cross_inlining_mappings, pattern_name):
-    project_partition_file = "../preprocessing_for_noinline/split_dataset/project_partition.json"
+    project_partition_file = "project_partition.json"
     dataset_partition_folder = "split_dataset"
     dest_split_fodler = "/path/to/binary2binary/DBs/Dataset-1/features"
 
