@@ -110,10 +110,3 @@ This repository use the code from repository https://github.com/Cisco-Talos/bina
         -c /output/model_checkpoint_pattern1_epoch_128 \
         -o /output/Dataset_cross_inlining_training_GSSN_opc_pair_pattern1_epoch_128
     ```
-
-
-## License
-
-The code in this repository is licensed under the MIT License, however, some models and scripts depend on code with different licenses.
-
-The GNN models contain part of the original source code which is licensed under Apache License 2.0.
